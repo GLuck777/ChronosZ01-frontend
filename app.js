@@ -269,8 +269,7 @@ document.getElementById("submitBtn").addEventListener("click", async function(ev
     if (p1.length > 5 && p2.length > 5) {
         document.getElementById("modal_load").style.display = "flex";
         try {
-            let response = await fetch("http://localhost:3000/fetch-data", {
-            // let response = await fetch("https://gluck777.github.io/ChronosZ01/fetch-data", {
+            let response = await fetch("https://puppeteer-backend.onrender.com/fetch-data", {  // Use Render URL
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username: p1, password: p2 })
@@ -283,7 +282,7 @@ document.getElementById("submitBtn").addEventListener("click", async function(ev
                 const formattedTime = timeString.split(':').slice(0, 2).join(':');
                 document.getElementById("heure").value = formattedTime;
                 
-                Start()
+                Start();
 
             } else {
                 document.getElementById("result").textContent = "Aucune donnée trouvée.";
