@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./src/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <title>Z01</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="fond"></div>
+    <main>
+        <div id="helloworld">
+            <div class="zone01Emp">
+                <div class="drag-handle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+                        <path fill="currentColor" fill-rule="evenodd" d="M7.5.75L9.75 3h-4.5zm0 13.5L9.75 12h-4.5zm-4.5-9L.75 7.5L3 9.75zM14.25 7.5L12 5.25v4.5z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <h3 class="no_select">Zone pour apprenant</h3>
+                <input type="text" id="p1" placeholder="Nom d'utilisateur">
+                <input type="password" id="p2" placeholder="Mot de passe">
+                <button id="submitBtn">Se connecter</button>
+                <p id="result" class="no_select"></p>
+            </div>
+            <img class="content" id="logo" src="./src/logo.png">
+            <div class="content">
+                <label>Ma journée est finie : </label>
+                <input id="doneToday" type="checkbox">
+            </div>
+            <div class="content">
+                <p>Heures validées au dernier jour ouvré : </p>
+                <input id="heure" type="text" placeholder="hh:mm" maxlength="6">
+            </div>
+            <div class="content">
+                <p>Jours de congé/feriés : </p>
+                <input type="text" id="jour" placeholder="j" maxlength="2">
+            </div>
+            <div id="elmt">
+                <p class="content">Je dois faire <span class="reponse" id="totalMonth">161h</span> dans le mois.</p>
+                <p class="content reponse" id="totalRem">Il me reste 17h08mn à faire dans le mois.</p>
+                <p class="content">Je dois avoir fait <span class="reponse" id="totalToday">140h</span> ce soir.</p>
+                <p class="content"><span class="reponse" id="difference">J'ai 3h52mn</span> <span class="reponse" id="nature">d'avance .</span></p>
+                <p class="content"><span class="reponse" id="rythme">Je dois faire 5h43mn/j.</span></p><br>
+            </div>
+        </div>
+        <div class="modal_load" id="modal_load">
+            <div id="load_state_message">
+                connexion en cours...
+                <br>
+                ⚠️  Ne pas raffraichir la page. 
+                <br>
+                L'opération prend moins d'une minute. ⏳
+            </div>
+                <div class="loads">
+                    <div>
+                        Loading...
+                    </div>
+                    <div>
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./app/app.js"></script>
+
+
+</body></html>
