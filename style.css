@@ -1,0 +1,305 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.no_select {
+    user-select: none; /* Empêche la sélection */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    cursor: default; /* Change le curseur pour éviter l'effet de sélection */
+}
+
+html,
+body {
+    overflow: hidden;
+    background: #1a191c;
+    width: 100%;
+    height: 100%;
+}
+
+#fond {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    opacity: 0.5;
+    background: center / cover url(./src/01-trame.svg);
+}
+
+main {
+    font-family: Montserrat, sans-serif;
+    background: rgb(100, 0, 50, 0.25);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 90%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+}
+
+#helloworld {
+    overflow: scroll;
+    background: #1a191cc3;
+    display: block;
+    position: absolute;
+    margin: 1%;
+    padding: 1%;
+    width: 96%;
+    height: 97%;
+    color: rgb(175, 175, 175);
+    overflow: hidden;
+}
+
+.content {
+    margin-bottom: 20px;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+    width: fit-content;
+}
+
+#logo {
+    height: min-content;
+    width: min-content;
+}
+
+#elmt {
+    text-align: center;
+}
+
+input#heure {
+    width: 100%;
+}
+
+.reponse {
+    font-size: x-large;
+    color: white;
+}
+
+.zone01Emp{
+    position: fixed;
+    /* min-width: 20%; */
+    /* max-width: 25%; */
+    min-width: 25vw;
+    max-width: 25vw;
+    /* background-color: #9969ff; */
+    background: radial-gradient(circle at center, #0d0d0d, #1a1a1a);
+    top: 0px;
+    /* left: 550px; */
+    left: 65vw;
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999; /* Au-dessus de tout sauf la modale */
+    overflow: hidden;
+    gap: 1vh;
+    display: flex;
+    flex-direction: column;
+}
+/*Drag and enjoy*/
+.drag-handle {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: grab;
+    width: 20px;
+    height: 20px;
+}
+.drag-handle:active {
+    cursor: grabbing;
+}
+/*Inputs displonible sur la page principale et la petite fenetre*/
+/* Styliser le checkbox */
+#doneToday {
+    appearance: none; /* Supprime le style par défaut */
+    width: 25px;
+    height: 25px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #2a2a72, #009ffd);
+    border: 2px solid #fff;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Effet lorsqu'il est coché */
+#doneToday:checked {
+    background: linear-gradient(135deg, #00ffcc, #0077ff);
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.8);
+}
+
+/* Ajout d'une icône de check */
+#doneToday::after {
+    content: "✔";
+    font-size: 16px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.2s ease;
+}
+/* Style de l'input "astronaute" */
+#p1, #p2, #heure, #jour {
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    border: none;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-size: 16px;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Affichage de l'icône quand coché */
+#doneToday:checked::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+/* Style du placeholder */
+#p1::placeholder {
+    font-family: 'Orbitron', sans-serif;
+    color: rgba(255, 255, 255, 0.7);
+}
+#p2::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+/* Effet lors du focus */
+#p1:focus {
+    outline: none;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+#p2:focus {
+    outline: none;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Style du bouton */
+#submitBtn {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    border: none;
+    border-radius: 12px;
+    padding: 15px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Effet de brillance */
+#submitBtn::before {
+    content: "";
+    /* position: absolute; */
+    /* top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%; */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, transparent 60%);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+    /* Effet au survol */
+#submitBtn:hover {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+    /* Effet de brillance au survol */
+#submitBtn:hover::before {
+    width: 90%;
+    height: 100%;
+    opacity: 1;
+}
+
+    /* Effet au clic */
+#submitBtn:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/*class pour la modale -- Principale*/
+.modal_load {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: orange;
+    font-size: 1.7vw;
+    z-index: 1000; /* Au-dessus de tout */
+}
+
+.modal_load svg {
+    width: 100px; /* Ajuste la taille du SVG */
+    height: 100px;
+    color: white; /* Couleur du SVG */
+}
+
+:root {
+    --bleu: #6a0dad; /* Violet */
+    --orange: orange;
+}
+
+#load_state_message{
+    color: orange;
+    font-size: 1.7vw;
+    text-align: center;
+}
+
+.loads {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 1.5vw;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+    margin-top: 1%;
+    display: block;
+    font-family: Comfortaa;
+}
+.loads :first-child{
+    display: grid;
+    place-content: center;
+    text-shadow: 1px 1px 2px black;
+}
+.loads :last-child{
+    display: grid;
+    place-content: center;
+    margin-top: 2%;
+}
+.spinner {
+    height: 8vw;
+    width: 8vw;
+    border: 0.5vw solid;
+    border-color: var(--orange) transparent var(--bleu) transparent;
+    border-radius: 50%;
+    animation: spin 1.3s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
