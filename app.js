@@ -269,7 +269,7 @@ document.getElementById("submitBtn").addEventListener("click", async function(ev
     if (p1.length > 5 && p2.length > 5) {
         document.getElementById("modal_load").style.display = "flex";
         try {
-            let response = await fetch("https://puppeteer-backend.onrender.com/fetch-data", {  // Use Render URL
+            let response = await fetch("https://puppeteer-backend-idsn.onrender.com/fetch-data", {  // Use Render URL
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username: p1, password: p2 })
